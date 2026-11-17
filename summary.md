@@ -80,6 +80,29 @@ The **Movie Ticket Booking System** is a console-based application developed usi
 **Input:** A1 is booked by Aman; book A2 and A3 for Neha; select the seat-map option.
 
 **Expected output:** A2 and A3 are booked for Neha. Amount: Rs. 400. The seat map shows the occupied seats and 12 seats left.
+## Difficulties Faced
+
+1. **Booking more than one seat at once (Test Case 4).**
+At first the program treated the whole input, such as `A2 and A3`, as a single seat, so it printed "Invalid seat". It also failed on `c4 c5`.
+*Solution:* the input is converted to uppercase, commas and the word `and` are replaced with spaces, and `split()` turns it into a list of seats. Each seat is then validated and booked one by one.
+2. **Handling a mix of valid and invalid seats in one input.**
+If one seat in the list was invalid or already booked, the other seats still had to be handled correctly.
+*Solution:* every seat is checked separately. Only the valid, free seats are booked, and an error message is printed for each bad one.
+3. **Calculating the correct amount.**
+The amount had to change with the number of seats booked, not just show a fixed Rs. 200.
+*Solution:* the amount is calculated as the number of seats actually booked multiplied by the ticket price, so two seats give Rs. 400.
+4. **Preventing double booking.**
+A seat that is already booked must never be booked again.
+*Solution:* booked seats are stored in a dictionary (seat to name), and each seat is checked against it before booking.
+5. **Keeping bookings after the program closes.**
+The seat map has to be the same the next time the program is run.
+*Solution:* bookings are written to `bookings.txt` after every booking or cancellation and loaded again when the program starts.
+6. **Showing the seat map and the seats left correctly.**
+The map had to show `X` for booked seats and `\_` for free ones, with the right count of seats left (12 in Test Case 4).
+*Solution:* the map is built with nested loops over rows A to C and seats 1 to 5, and seats left is calculated as 15 minus the number of booked seats.
+7. **Matching the exact expected output of each test case.**
+The messages had to match the expected output, for example "Seats A2, A3 booked for Neha" for two seats and "Seat A1 booked for Aman" for one.
+*Solution:* the program checks how many seats were booked and uses "Seat" or "Seats" to suit, and it prints the housefull message when no seats are left.
 
 ## 8. Possible Difficulties and Learning Outcomes
 

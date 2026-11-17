@@ -68,15 +68,6 @@ A3,Neha
 
 
 
-## Difficulties Faced
-
-1. **Understanding the seat map as a 2D list** – It was confusing at first to convert a seat like `A1` into list positions. Solved by using the row letter to find the row index (`A = 0, B = 1, C = 2`) and `seat number - 1` as the column index.
-2. **Validating seat input** – Inputs like `Z9`, `A6`, or an empty entry caused errors. Solved by checking the length, the row letter (A to C) and the seat number (1 to 5) before using the seat.
-3. **Preventing double booking** – Had to make sure an already booked seat cannot be booked again. Solved by checking the seat map before booking and showing the message "Seat is already booked."
-4. **Booking multiple seats in one go (Test Case 4)** – Booking A2 and A3 for Neha and calculating the amount (2 x 200 = 400) needed care. Solved by looping over each seat and multiplying the number of booked seats by the ticket price.
-5. **File handling** – Making sure bookings are saved after every change and loaded properly when the program restarts. Faced issues with missing files on the first run and extra blank lines. Solved by handling the "file not found" case and stripping each line while reading.
-6. **Cancelling a booking** – After cancelling, the seat map and `bookings.txt` both had to be updated. Solved by rewriting the whole file after each change.
-7. **Matching the exact expected output** – Small differences in spacing or wording failed the test cases, so the output format was adjusted carefully to match the given format.
 
 ## What I Learned
 
